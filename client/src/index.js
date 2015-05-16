@@ -1,4 +1,3 @@
-// import Phoenix from "./vendor/phoenix"
 import {Socket} from "./vendor/phoenix"
 class App {
   static init(){
@@ -9,18 +8,12 @@ class App {
       .receive("ignore", () => console.log("auth error") )
       .receive("ok", chan => {
         chan.onError( e => console.log("something went wrong", e) )
-        chan.onClose( e => console.log("channel closed", e) )
-
-        // sender
-        setTimeout(() =>{
-          chan.push("new:ping", {user: 'a', body: 'body'})
-        }, 10000);
-
+        chan.onClose( e => console.log("channel closed", e) );
+        chan.push("new:msg", {user: 'a', body: 'body'})
         //receiver
         chan.on("new:msg", msg => {
           console.log(msg);
         });
-
         chan.on("user:entered", msg => {
           var username = msg.user || "anonymous";
           console.log(`[${username} entered]`);
