@@ -1,0 +1,12 @@
+[ignore]
+.*/_lib/.*
+.*/public/.*
+.*/node_modules/node-sass/.*
+
+[include]
+
+[libs]
+ar3.d.ts
+typings/bundle.d.ts
+
+[options]

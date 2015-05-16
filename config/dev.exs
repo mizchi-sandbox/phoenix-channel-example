@@ -10,8 +10,8 @@ config :chat, Chat.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   cache_static_lookup: false,
-  code_reloader: true,
-  watchers: [node: ["node_modules/brunch/bin/brunch", "watch"]]
+  code_reloader: true
+  # watchers: [node: ["node_modules/brunch/bin/brunch", "watch"]]
 
 # Watch static and templates for browser reloading.
 # *Note*: Be careful with wildcards. Larger projects
@@ -20,7 +20,8 @@ config :chat, Chat.Endpoint,
 config :chat, Chat.Endpoint,
   live_reload: [
     patterns: [
-      ~r{priv/static/.*(js|css|png|jpeg|jpg|gif)$},
+      # ~r{priv/static/.*(js|css|png|jpeg|jpg|gif)$},
+      ~r{priv/static/.*},
       ~r{web/views/.*(ex)$},
       ~r{web/templates/.*(eex)$}
     ]
